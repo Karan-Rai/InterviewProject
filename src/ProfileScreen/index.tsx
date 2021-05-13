@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, TouchableOpacity, Text} from 'react-native';
+import {View, Image, TouchableOpacity, Text, Alert} from 'react-native';
 import * as ImagePicker from 'react-native-image-picker';
 
 import DatePicker from 'react-native-datepicker';
@@ -7,6 +7,7 @@ import styles from './style';
 import Input from '../Component/TextInput';
 import Button from '../Component/Button';
 import {TEXT} from '../Component/String';
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -35,12 +36,9 @@ class Profile extends React.Component {
     };
 
     ImagePicker.launchImageLibrary(options, res => {
-      console.log('Response = ', res);
-
       if (res.didCancel) {
-        console.log('User cancelled image picker');
+        Alert.alert('User cancelled image picker');
       } else if (res.errorMessage) {
-        console.log('ImagePicker Error: ', res.errorMessage);
       } else {
         let source = res;
         this.setState({
@@ -50,27 +48,34 @@ class Profile extends React.Component {
     });
   };
   onSubmit = () => {
-    let details = {};
-    (details.fname = this.state.fname),
-      (details.lname = this.state.lname),
-      (details.photo = this.state.photo),
-      (details.date = this.state.date),
-      console.log(details);
-
-    fetch('http://localhost:8090/profile/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(details),
-    })
-      .then(response => response.json())
-      .then(details => {
-        console.log('Success:', details);
-      })
-      .catch(error => {
-        const msg = this.fetchErrorMessage(error);
-      });
+    if (
+      this.state.fname == '' ||
+      this.state.lname == '' ||
+      this.state.date == ''
+    ) {
+      Alert.alert('Fields can not be empty');
+    } else {
+      let details = {};
+      (details.fname = this.state.fname),
+        (details.lname = this.state.lname),
+        (details.photo = this.state.photo),
+        (details.date = this.state.date),
+        fetch('http://localhost:8090/profile/create', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(details),
+        })
+          .then(response => response.json())
+          .then(details => {
+            console.log('Success:', details);
+          })
+          .catch(error => {
+            const msg = this.fetchErrorMessage(error);
+            Alert.alert(msg);
+          });
+    }
   };
 
   fetchErrorMessage(error) {
@@ -89,6 +94,7 @@ class Profile extends React.Component {
       ? error.response.data.error_description
       : TEXT.NETWORK_ERROR;
   }
+
   render() {
     return (
       <View style={styles.container}>
@@ -96,19 +102,15 @@ class Profile extends React.Component {
           <TouchableOpacity
             style={styles.imageButton}
             onPress={this.selectFile}>
-            {this.state.photo === null ? (
-              <Image
-                source={require('/Users/karry/ProfilePage/src/Component/profile.jpg')}
-                style={styles.imageBox}
-                resizeMode="cover"
-              />
-            ) : (
-              <Image
-                source={{uri: this.state.photo.uri}}
-                style={styles.imageBox}
-                resizeMode="cover"
-              />
-            )}
+            <Image
+              source={
+                this.state.photo
+                  ? {uri: this.state.photo.uri}
+                  : require('../Component/Assets/profile.jpg')
+              }
+              style={styles.imageBox}
+              resizeMode="cover"
+            />
           </TouchableOpacity>
           <Text style={styles.welcome}>{TEXT.welcome}</Text>
         </View>
@@ -116,8 +118,8 @@ class Profile extends React.Component {
           <View style={styles.action}>
             <Input
               placeholder={TEXT.fname}
-              onChangeText={fname => {
-                this.setState({fname: fname}, () => {});
+              onChangeText={text => {
+                this.setState({fname: text}, () => {});
               }}
             />
           </View>
@@ -125,8 +127,8 @@ class Profile extends React.Component {
           <View style={styles.action}>
             <Input
               placeholder={TEXT.lname}
-              onChangeText={lname => {
-                this.setState({lname: lname}, () => {});
+              onChangeText={text => {
+                this.setState({lname: text}, () => {});
               }}
             />
           </View>
@@ -136,10 +138,9 @@ class Profile extends React.Component {
               style={{width: 280}}
               date={this.state.date}
               mode="date"
-              placeholder="select date"
+              placeholder="Date of Birth"
               format="DD-MM-YYYY"
-              minDate="1990-01-01"
-              maxDate="2000-06-01"
+              maxDate={new Date()}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               customStyles={{
@@ -159,15 +160,7 @@ class Profile extends React.Component {
             />
           </View>
 
-          <Button
-            disabled={
-              (this.state.fname && this.state.lname && this.state.dob) == ''
-                ? true
-                : false
-            }
-            onPress={this.onSubmit}
-            title="Submit"
-          />
+          <Button onPress={this.onSubmit} title="Submit" />
         </View>
       </View>
     );

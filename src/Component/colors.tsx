@@ -1,5 +1,5 @@
 export const COLORS = {
-  primaryColor: '#3498DB',
-  buttonColor: '#3498DB',
+  primaryColor: '#1ABC9C',
+  buttonColor: '#1ABC9C',
   bodyColor: '#fff',
 };

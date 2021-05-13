@@ -1,12 +1,19 @@
 import React from 'react';
 import {TextInput, StyleSheet} from 'react-native';
 
-const Input = ({placeholder, keyboardType, maxLength, onChangeText}) => {
+const Input = ({
+  placeholder,
+  onBlur,
+  keyboardType,
+  maxLength,
+  onChangeText,
+}) => {
   return (
     <TextInput
       placeholder={placeholder}
       placeholderTextColor="#283747"
       style={styles.input}
+      onBlur={onBlur}
       autoCorrect={false}
       keyboardType={keyboardType}
       maxLength={maxLength}
