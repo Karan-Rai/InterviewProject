@@ -2,6 +2,8 @@ export const TEXT = {
   welcome: 'Welcome to Profile Screen',
   fname: 'First Name',
   lname: 'Last Name',
+  alertSubmit: 'Fields can not be empty',
+  alertImage: 'User cancelled image picker',
   HTTP_ERROR_CODE: 502,
   SERVER_NOT_FOUND: 500,
   UNAUTHORIZED_ACCESS_CODE: 401,

@@ -37,7 +37,7 @@ class Profile extends React.Component {
 
     ImagePicker.launchImageLibrary(options, res => {
       if (res.didCancel) {
-        Alert.alert('User cancelled image picker');
+        Alert.alert(TEXT.alertImage);
       } else if (res.errorMessage) {
       } else {
         let source = res;
@@ -53,7 +53,7 @@ class Profile extends React.Component {
       this.state.lname == '' ||
       this.state.date == ''
     ) {
-      Alert.alert('Fields can not be empty');
+      Alert.alert(TEXT.alertSubmit);
     } else {
       let details = {};
       (details.fname = this.state.fname),
