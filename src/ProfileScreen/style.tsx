@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: 20,
-    color: '#fff',
+    color: COLORS.bodyColor,
     paddingVertical: 10,
   },
   body: {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 5,
     paddingHorizontal: 20,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.bodyColor,
   },
   imageContainer: {
     flex: 1,
@@ -43,10 +43,10 @@ const styles = StyleSheet.create({
     width: 140,
     height: 140,
     borderRadius: 100,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.bodyColor,
   },
   imageButton: {
-    borderColor: 'black',
+    borderColor: COLORS.black,
     borderWidth: 1,
     width: 140,
     height: 140,

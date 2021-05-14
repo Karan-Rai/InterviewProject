@@ -26,7 +26,7 @@ class Profile extends React.Component {
       customButtons: [
         {
           name: 'customOptionKey',
-          title: 'Choose file from Custom Option',
+          title: TEXT.imageTitle,
         },
       ],
       storageOptions: {
@@ -138,7 +138,7 @@ class Profile extends React.Component {
               style={{width: 280}}
               date={this.state.date}
               mode="date"
-              placeholder="Date of Birth"
+              placeholder={TEXT.datePlaceholder}
               format="DD-MM-YYYY"
               maxDate={new Date()}
               confirmBtnText="Confirm"
@@ -160,7 +160,7 @@ class Profile extends React.Component {
             />
           </View>
 
-          <Button onPress={this.onSubmit} title="Submit" />
+          <Button onPress={this.onSubmit} title={TEXT.submit} />
         </View>
       </View>
     );
