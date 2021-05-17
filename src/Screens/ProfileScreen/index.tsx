@@ -141,6 +141,9 @@ class Profile extends React.Component {
               maxDate={new Date()}
               confirmBtnText={TEXT.confirm}
               cancelBtnText={TEXT.cancel}
+              customStyles={{
+                dateIcon: styles.dateIcon,
+              }}
               onDateChange={date => {
                 this.setState({date: date});
               }}

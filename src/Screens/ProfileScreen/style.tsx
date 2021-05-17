@@ -50,14 +50,12 @@ const styles = StyleSheet.create({
   date: {
     width: 280,
   },
+
   dateIcon: {
     position: 'absolute',
     left: 0,
     top: 4,
     marginLeft: 0,
-  },
-  dateInput: {
-    marginLeft: 36,
   },
   imageButton: {
     borderColor: COLORS.black,
