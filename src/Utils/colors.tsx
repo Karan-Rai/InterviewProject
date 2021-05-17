@@ -1,6 +1,6 @@
 export const COLORS = {
   primaryColor: '#1ABC9C',
   buttonColor: '#1ABC9C',
-  bodyColor: '#fff',
+  plain: '#fff',
   black: '#000000',
 };

@@ -9,12 +9,12 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: 20,
-    color: COLORS.bodyColor,
+    color: COLORS.plain,
     paddingVertical: 10,
   },
   body: {
     flex: 2,
-    backgroundColor: COLORS.bodyColor,
+    backgroundColor: COLORS.plain,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingHorizontal: 20,
@@ -29,13 +29,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 10,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: COLORS.black,
   },
   input: {
     flex: 1,
     paddingVertical: 5,
     paddingHorizontal: 20,
-    backgroundColor: COLORS.bodyColor,
+    backgroundColor: COLORS.plain,
   },
   imageContainer: {
     flex: 1,
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     width: 140,
     height: 140,
     borderRadius: 100,
-    backgroundColor: COLORS.bodyColor,
+    backgroundColor: COLORS.plain,
   },
   date: {
     width: 280,

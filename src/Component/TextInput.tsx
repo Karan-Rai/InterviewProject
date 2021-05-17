@@ -1,5 +1,6 @@
 import React from 'react';
-import {TextInput, StyleSheet} from 'react-native';
+import {TextInput} from 'react-native';
+import {styles} from './style';
 
 const Input = ({
   placeholder,
@@ -22,14 +23,5 @@ const Input = ({
     />
   );
 };
-
-const styles = StyleSheet.create({
-  input: {
-    flex: 1,
-    paddingVertical: 5,
-    paddingHorizontal: 20,
-    backgroundColor: '#fff',
-  },
-});
 
 export default Input;

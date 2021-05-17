@@ -7,7 +7,7 @@ import styles from './style';
 import Input from '../Component/TextInput';
 import Button from '../Component/Button';
 import {TEXT} from '../Utils/String';
-import {img} from '../Component/icons';
+import {img} from '../Assets/icons';
 
 class Profile extends React.Component {
   constructor(props) {

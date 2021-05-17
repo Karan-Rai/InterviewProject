@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
-import {COLORS} from '../Utils/colors';
+
+import {styles} from './style';
 
 const Button = ({title, onPress, disabled}) => {
   return (
@@ -14,25 +15,5 @@ const Button = ({title, onPress, disabled}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  submitText: {
-    fontSize: 20,
-    color: '#fff',
-  },
-  submitButton: {
-    marginTop: 30,
-    backgroundColor: COLORS.buttonColor,
-    width: 100,
-    height: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 15,
-  },
-});
 
 export default Button;
