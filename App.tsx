@@ -1,5 +1,5 @@
 import React from 'react';
-import Profile from './src/ProfileScreen/index';
+import Profile from './src/Screens/ProfileScreen/index';
 
 const App = () => {
   return <Profile />;

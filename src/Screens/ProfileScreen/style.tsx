@@ -1,11 +1,10 @@
 import {StyleSheet} from 'react-native';
-import {COLORS} from '../Utils/colors';
+import {COLORS} from '../../Utils/colors';
 
 const styles = StyleSheet.create({
   container: {
     flex: 2,
     backgroundColor: COLORS.primaryColor,
-    position: 'absolute',
   },
   welcome: {
     fontSize: 20,

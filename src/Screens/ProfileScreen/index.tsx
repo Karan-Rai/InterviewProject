@@ -4,10 +4,10 @@ import * as ImagePicker from 'react-native-image-picker';
 
 import DatePicker from 'react-native-datepicker';
 import styles from './style';
-import Input from '../Component/TextInput';
-import Button from '../Component/Button';
-import {TEXT} from '../Utils/String';
-import {img} from '../Assets/icons';
+import Input from '../../Component/TextInput';
+import Button from '../../Component/Button';
+import {TEXT} from '../../Utils/String';
+import {img} from '../../Assets/icons';
 
 class Profile extends React.Component {
   constructor(props) {
