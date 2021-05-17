@@ -51,7 +51,8 @@ class Profile extends React.Component {
     if (
       this.state.fname == '' ||
       this.state.lname == '' ||
-      this.state.date == ''
+      this.state.date == '' ||
+      this.state.photo == ''
     ) {
       Alert.alert(TEXT.alertSubmit);
     } else {
