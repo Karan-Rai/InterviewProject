@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
-import {COLORS} from '../Component/colors';
+import {COLORS} from '../Utils/colors';
 
 const styles = StyleSheet.create({
   container: {
     flex: 2,
     backgroundColor: COLORS.primaryColor,
+    position: 'absolute',
   },
   welcome: {
     fontSize: 20,
@@ -14,6 +15,8 @@ const styles = StyleSheet.create({
   body: {
     flex: 2,
     backgroundColor: COLORS.bodyColor,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
     paddingHorizontal: 20,
     paddingVertical: 30,
   },
@@ -44,6 +47,18 @@ const styles = StyleSheet.create({
     height: 140,
     borderRadius: 100,
     backgroundColor: COLORS.bodyColor,
+  },
+  date: {
+    width: 280,
+  },
+  dateIcon: {
+    position: 'absolute',
+    left: 0,
+    top: 4,
+    marginLeft: 0,
+  },
+  dateInput: {
+    marginLeft: 36,
   },
   imageButton: {
     borderColor: COLORS.black,

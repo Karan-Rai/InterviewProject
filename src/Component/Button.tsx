@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
-import {COLORS} from './colors';
+import {COLORS} from '../Utils/colors';
 
 const Button = ({title, onPress, disabled}) => {
   return (

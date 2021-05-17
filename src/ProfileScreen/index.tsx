@@ -6,7 +6,8 @@ import DatePicker from 'react-native-datepicker';
 import styles from './style';
 import Input from '../Component/TextInput';
 import Button from '../Component/Button';
-import {TEXT} from '../Component/String';
+import {TEXT} from '../Utils/String';
+import {img} from '../Component/icons';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -22,10 +23,10 @@ class Profile extends React.Component {
 
   selectFile = () => {
     var options = {
-      title: 'Select Image',
+      title: TEXT.select,
       customButtons: [
         {
-          name: 'customOptionKey',
+          name: TEXT.key,
           title: TEXT.imageTitle,
         },
       ],
@@ -38,7 +39,6 @@ class Profile extends React.Component {
     ImagePicker.launchImageLibrary(options, res => {
       if (res.didCancel) {
         Alert.alert(TEXT.alertImage);
-      } else if (res.errorMessage) {
       } else {
         let source = res;
         this.setState({
@@ -68,9 +68,7 @@ class Profile extends React.Component {
           body: JSON.stringify(details),
         })
           .then(response => response.json())
-          .then(details => {
-            console.log('Success:', details);
-          })
+
           .catch(error => {
             const msg = this.fetchErrorMessage(error);
             Alert.alert(msg);
@@ -106,7 +104,7 @@ class Profile extends React.Component {
               source={
                 this.state.photo
                   ? {uri: this.state.photo.uri}
-                  : require('../Component/Assets/profile.jpg')
+                  : img.PROFILE_ICON
               }
               style={styles.imageBox}
               resizeMode="cover"
@@ -135,25 +133,14 @@ class Profile extends React.Component {
 
           <View style={styles.action}>
             <DatePicker
-              style={{width: 280}}
+              style={styles.date}
               date={this.state.date}
               mode="date"
               placeholder={TEXT.datePlaceholder}
               format="DD-MM-YYYY"
               maxDate={new Date()}
-              confirmBtnText="Confirm"
-              cancelBtnText="Cancel"
-              customStyles={{
-                dateIcon: {
-                  position: 'absolute',
-                  left: 0,
-                  top: 4,
-                  marginLeft: 0,
-                },
-                dateInput: {
-                  marginLeft: 36,
-                },
-              }}
+              confirmBtnText={TEXT.confirm}
+              cancelBtnText={TEXT.cancel}
               onDateChange={date => {
                 this.setState({date: date});
               }}
