@@ -1,13 +1,13 @@
 import React from 'react';
 import {View, Image, TouchableOpacity, Text, Alert} from 'react-native';
 import * as ImagePicker from 'react-native-image-picker';
-
 import DatePicker from 'react-native-datepicker';
 import styles from './style';
 import Input from '../../Component/TextInput';
 import Button from '../../Component/Button';
 import {TEXT} from '../../Utils/String';
 import {img} from '../../Assets/icons';
+import {CONSTANT} from '../../Utils/Constants';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -60,7 +60,7 @@ class Profile extends React.Component {
         (details.lname = this.state.lname),
         (details.photo = this.state.photo),
         (details.date = this.state.date),
-        fetch('http://localhost:8090/profile/create', {
+        fetch(CONSTANT.apiURL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ class Profile extends React.Component {
               date={this.state.date}
               mode="date"
               placeholder={TEXT.datePlaceholder}
-              format="DD-MM-YYYY"
+              format={CONSTANT.dateFormat}
               maxDate={new Date()}
               confirmBtnText={TEXT.confirm}
               cancelBtnText={TEXT.cancel}
